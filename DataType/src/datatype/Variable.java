@@ -2,12 +2,12 @@ package datatype;
 
 public class Variable {
     public static void main(String[] args) {
-        //논리형 변수 선언
+        //논리형 변수 선언 ==================================================================================
         System.out.println("논리형 변수");
         boolean isMarried = false;
         System.out.println(isMarried);
 
-        // 정수형 변수 선언
+        // 정수형 변수 선언 ==================================================================================
         System.out.println("정수형 변수");
         byte bs = -128; // 8bit 표현, -2^7 ~ 2^7-1 (-128 ~ 127)
         System.out.println(bs);
@@ -21,14 +21,14 @@ public class Variable {
         long lNum = 12345678900L; // -2^63 ~ 2^63-1
         System.out.println(lNum);
 
-        // 실수 자료형
+        // 실수 자료형 ==================================================================================
         System.out.println("실수형 변수");
         double dNum = 3.14;
         float fNum = 3.14F; //식별자 필요
         System.out.println(dNum);
         System.out.println(fNum);
 
-        // 문자 자료형
+        // 문자 자료형 ==================================================================================
         System.out.println("문자형 변수");
         char ch1 = 'A';
         System.out.println(ch1);
@@ -46,7 +46,7 @@ public class Variable {
         System.out.println(ch4);
         System.out.println(ch5);
 
-        // 상수 자료형
+        // 상수 자료형 ==================================================================================
         // 항상 변하지 않는 상수를 선언할 때는 final을 사용함
         // 상수는 대문자를 주로 사용하고 _로 연결함
         // 상수는 값을 변경할 수 없음
@@ -59,7 +59,7 @@ public class Variable {
         System.out.println(MAX_NUM);
         System.out.println(MIN_NUM);
 
-        // Type Inference
+        // Type Inference ==================================================================================
         // 자바 10부터 자료형을 선언 하지 않아도 '지역 변수 자료형 추론' 가능
         System.out.println("자료형 추론");
         int i = 10;
@@ -73,7 +73,7 @@ public class Variable {
         str = "test";
         //str = 3; 한번 선언한 자료형 변수를 다른 자료형으로 사용할 수 없음
 
-        // 묵시적 형 변환
+        // 묵시적 형 변환 ==================================================================================
         //byte -> (char) -> int -> long -> float -> double 로는 자연스럽게 묵시적 형 변환이 이루어짐
         System.out.println("묵시적 형 변환");
         byte bNum1 = 10;
@@ -92,7 +92,7 @@ public class Variable {
         dNum3 = fNum2 + iNum2;
         System.out.println(dNum3);
 
-        // 명시적 형 변환
+        // 명시적 형 변환 ==================================================================================
         System.out.println("명시적 형 변환");
         int iNum4 = 1000; //byte가 표현할 수 있는 범위를 넘어서는 경우 자료 손실이 발생함
         byte bNum4 = (byte)iNum4;
