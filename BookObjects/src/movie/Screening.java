@@ -26,9 +26,12 @@ public class Screening {
         return movie.getFee();
     }
 
+    public String getMovieTitle() {
+        return movie.getTitle();
+    }
+
     public Reservation reserve(Customer customer, int audienceCount) {
-        return new Reservation(customer, this, calculateFee(audienceCount),
-                audienceCount);
+        return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
     }
 
     private Money calculateFee(int audienceCount) {
