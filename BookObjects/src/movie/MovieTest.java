@@ -38,5 +38,10 @@ public class MovieTest {
         Customer gong = new Customer("공예슬", "ysgong");
         Reservation reservation = firstMovie.reserve(gong, 2);
         reservation.showInfo();
+
+        Screening secondMovie = new Screening(starWars, 2, LocalDateTime.of(2023, 8, 21, 11, 15));
+        Customer heo = new Customer("허태정", "htj");
+        Reservation reservation1 = secondMovie.reserve(heo, 4);
+        reservation1.showInfo();
     }
 }
