@@ -5,33 +5,33 @@ import money.Money;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Reservation {
     private Customer customer;
     private Screening screening;
     private Money fee;
-    private int audienceCount;
+    private Member members;
     private String reservationID;
-    private LocalDateTime reservatioinTime;
-    private LocalDateTime now;
     private LocalDateTime reservationTime;
+    private LocalDateTime now;
 
 
-    public Reservation(Customer customer, Screening screening, Money fee, int audienceCount) {
+    public Reservation(Customer customer, Screening screening, Money fee, Member mebers) {
         this.reservationTime = LocalDateTime.now();
         this.reservationID = reservationTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
         this.customer = customer;
         this.screening = screening;
         this.fee = fee;
-        this.audienceCount = audienceCount;
+        this.members = mebers;
     }
 
     public void showReservationInfo() {
         System.out.println("========================================");
         System.out.println(this.customer.getName()+"님의 예매 정보입니다.");
         System.out.println("예매 번호: "+this.reservationID);
-//        System.out.println("예매한 시각: "+this.reservatioinTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
-        System.out.println("예매 매수: "+this.audienceCount+"매");
+        System.out.println("예매한 시각: "+this.reservationTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+        members.showMemberInfo();
         System.out.println("지불액: "+this.fee);
         this.screening.showScreeningInfo();
     }
@@ -43,7 +43,7 @@ public class Reservation {
         System.out.println("========"+this.customer.getName()+" 님의 예매를 취소합니다.==========");
         System.out.println("**예매 취소 내역**");
         System.out.println("예매 번호: "+this.reservationID);
-        System.out.println("예매 매수: "+this.audienceCount+"매");
+        members.showMemberInfo();
         this.screening.showScreeningInfo();
         System.out.println("----------------------------------------");
         System.out.println("환불 금액: "+refundFee);

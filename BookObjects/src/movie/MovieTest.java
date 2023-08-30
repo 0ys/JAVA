@@ -40,13 +40,15 @@ public class MovieTest {
         Screening firstMovie = new Screening(avatar, 1, LocalDateTime.of(2023, 8, 17, 10, 10),
                                     "메가박스 코엑스점", "Dolby 시네마");
         Customer gong = new Customer("공예슬", "ysgong");
-        Reservation reservationGong = firstMovie.reserve(gong, 2);
+        Member memberGong = new Member(2, 0, 1);
+        Reservation reservationGong = firstMovie.reserve(gong, memberGong);
         reservationGong.showReservationInfo();
 
         Screening secondMovie = new Screening(starWars, 2, LocalDateTime.of(2023, 8, 26, 23, 15),
                                     "CGV 여의도IFC몰", "지하1층 6관");
         Customer heo = new Customer("허태정", "htj");
-        Reservation reservationHeo = secondMovie.reserve(heo, 4);
+        Member memberHeo = new Member(2, 2, 0);
+        Reservation reservationHeo = secondMovie.reserve(heo, memberHeo);
         reservationHeo.showReservationInfo();
         reservationHeo.cancelReservation();
 

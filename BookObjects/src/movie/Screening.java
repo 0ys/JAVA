@@ -3,6 +3,7 @@ package movie;
 import money.Money;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 public class Screening {
     private Movie movie;
@@ -31,12 +32,12 @@ public class Screening {
         return movie.getFee();
     }
 
-    public Reservation reserve(Customer customer, int audienceCount) {
-        return new Reservation(customer, this, calculateFee(audienceCount), audienceCount);
+    public Reservation reserve(Customer customer, Member members) {
+        return new Reservation(customer, this, calculateFee(members), members);
     }
 
-    private Money calculateFee(int audienceCount) {
-        return movie.calculateMovieFee(this).times(audienceCount);
+    private Money calculateFee(Member members) {
+        return members.calculateTotalFee(movie.calculateMovieFee(this));
     }
 
     public void showScreeningInfo() {
